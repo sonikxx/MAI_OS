@@ -31,6 +31,7 @@ int main() {
     switch (fork()) {
     case -1:
         send_error_and_stop("Fork error\n", 2);
+        break;
     case 0:
         // B
         close(file_descriptorsA_to_C[WRITE]);
@@ -55,6 +56,7 @@ int main() {
         switch (fork()) {
         case -1:
             send_error_and_stop("Fork error\n", 2);
+            break;
         case 0:
             // C
             close(file_descriptorsA_to_C[WRITE]);
